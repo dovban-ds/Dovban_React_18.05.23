@@ -1,0 +1,11 @@
+div {
+  margin: 150px 0;
+  font-weight: 600;
+}
+
+button {
+  padding: 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
