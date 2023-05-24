@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Dovban_React_18.05.23/static/css/main.a3a77afb.css",
-    "main.js": "/Dovban_React_18.05.23/static/js/main.04133605.js",
+    "main.css": "/Dovban_React_18.05.23/static/css/main.b393c8d7.css",
+    "main.js": "/Dovban_React_18.05.23/static/js/main.16fca5d2.js",
     "static/js/787.1efde37a.chunk.js": "/Dovban_React_18.05.23/static/js/787.1efde37a.chunk.js",
     "index.html": "/Dovban_React_18.05.23/index.html",
-    "main.a3a77afb.css.map": "/Dovban_React_18.05.23/static/css/main.a3a77afb.css.map",
-    "main.04133605.js.map": "/Dovban_React_18.05.23/static/js/main.04133605.js.map",
+    "main.b393c8d7.css.map": "/Dovban_React_18.05.23/static/css/main.b393c8d7.css.map",
+    "main.16fca5d2.js.map": "/Dovban_React_18.05.23/static/js/main.16fca5d2.js.map",
     "787.1efde37a.chunk.js.map": "/Dovban_React_18.05.23/static/js/787.1efde37a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3a77afb.css",
-    "static/js/main.04133605.js"
+    "static/css/main.b393c8d7.css",
+    "static/js/main.16fca5d2.js"
   ]
 }
