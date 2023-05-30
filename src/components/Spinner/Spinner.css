@@ -1,0 +1,26 @@
+.bg {
+  height: calc(100vh - 30px);
+}
+.spinner {
+  display: flex;
+  max-width: 10%;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  animation: flip 1.5s linear infinite;
+  animation-delay: 0s;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-img {
+  width: 100%;
+}
