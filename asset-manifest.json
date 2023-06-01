@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/Dovban_React_18.05.23/static/css/main.cd6d56c7.css",
-    "main.js": "/Dovban_React_18.05.23/static/js/main.0bd04ffd.js",
+    "main.css": "/Dovban_React_18.05.23/static/css/main.5a3a3f83.css",
+    "main.js": "/Dovban_React_18.05.23/static/js/main.730f5b66.js",
     "static/js/787.1efde37a.chunk.js": "/Dovban_React_18.05.23/static/js/787.1efde37a.chunk.js",
     "index.html": "/Dovban_React_18.05.23/index.html",
-    "static/media/spinner.svg": "/Dovban_React_18.05.23/static/media/spinner.816740ad23d9f61d0d879437b3c6aa4b.svg",
-    "main.cd6d56c7.css.map": "/Dovban_React_18.05.23/static/css/main.cd6d56c7.css.map",
-    "main.0bd04ffd.js.map": "/Dovban_React_18.05.23/static/js/main.0bd04ffd.js.map",
+    "main.5a3a3f83.css.map": "/Dovban_React_18.05.23/static/css/main.5a3a3f83.css.map",
+    "main.730f5b66.js.map": "/Dovban_React_18.05.23/static/js/main.730f5b66.js.map",
     "787.1efde37a.chunk.js.map": "/Dovban_React_18.05.23/static/js/787.1efde37a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd6d56c7.css",
-    "static/js/main.0bd04ffd.js"
+    "static/css/main.5a3a3f83.css",
+    "static/js/main.730f5b66.js"
   ]
 }
