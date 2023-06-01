@@ -1,6 +1,6 @@
 import "./Form.css";
 import React from "react";
-import Validation from "./Validation";
+import validation from "./useForm";
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -10,25 +10,20 @@ export default class Form extends React.Component {
       lastName: "",
       email: "",
       password: "",
-      btnAble: false,
+      disable: true,
+      firstNameValid: false,
+      lastNameValid: false,
+      emailValid: false,
+      passwordValid: false,
     };
   }
 
-  handleChange = (event, field) => {
+  handleChanges = (event, field) => {
     this.setState(() => {
       return { [field]: [event.target.value] };
     });
-  };
-
-  validArr = (result) => {
-    // const check = result.every((item) =>
-    //   item.props.children.includes("properly")
-    // );
-    if (result.length === 4) {
-      return result.every((item) => item.key % 2 !== 0)
-        ? this.setState({ btnAble: true })
-        : null;
-    }
+    const isValid = validation(field, [event.target.value]);
+    this.setState({ [`${field}Valid`]: isValid });
   };
 
   buttonHandler = (event) => {
@@ -42,38 +37,50 @@ export default class Form extends React.Component {
             type="text"
             name="firstName"
             value={this.state.firstName}
-            onChange={(event) => this.handleChange(event, "firstName")}
+            onChange={(event) => this.handleChanges(event, "firstName")}
           />
+          {!this.state.firstNameValid && (
+            <div>Please enter a valid first name</div>
+          )}
           <input
             type="text"
             name="lastName"
             value={this.state.lastName}
-            onChange={(event) => this.handleChange(event, "lastName")}
+            onChange={(event) => this.handleChanges(event, "lastName")}
           />
+          {!this.state.lastNameValid && (
+            <div>Please enter a valid last name</div>
+          )}
           <input
             type="email"
             name="email"
             value={this.state.email}
-            onChange={(event) => this.handleChange(event, "email")}
+            onChange={(event) => this.handleChanges(event, "email")}
           />
+          {!this.state.emailValid && (
+            <div>Please enter a valid email address</div>
+          )}
           <input
             type="password"
             name="password"
             value={this.state.password}
-            onChange={(event) => this.handleChange(event, "password")}
+            onChange={(event) => this.handleChanges(event, "password")}
           />
-          {this.state.email ||
-          this.state.password ||
-          this.state.firstName ||
-          this.state.lastName ? (
-            <Validation state={this.state} validArr={this.validArr} />
-          ) : null}
-          <button
-            onClick={(event) => this.buttonHandler(event)}
-            className={this.state.btnAble ? "avaliable" : "isntAvaliable"}
-          >
-            Submit
-          </button>
+          {!this.state.passwordValid && (
+            <div>Please enter a valid password</div>
+          )}
+          {this.state.firstNameValid &&
+          this.state.emailValid &&
+          this.state.lastNameValid &&
+          this.state.passwordValid ? (
+            <button onClick={(event) => this.buttonHandler(event)}>
+              Submit
+            </button>
+          ) : (
+            <button onClick={(event) => this.buttonHandler(event)} disabled>
+              Submit
+            </button>
+          )}
         </form>
       </div>
     );
