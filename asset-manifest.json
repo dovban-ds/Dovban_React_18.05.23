@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Dovban_React_18.05.23/static/css/main.5a3a3f83.css",
-    "main.js": "/Dovban_React_18.05.23/static/js/main.730f5b66.js",
-    "static/js/787.1efde37a.chunk.js": "/Dovban_React_18.05.23/static/js/787.1efde37a.chunk.js",
-    "index.html": "/Dovban_React_18.05.23/index.html",
-    "main.5a3a3f83.css.map": "/Dovban_React_18.05.23/static/css/main.5a3a3f83.css.map",
-    "main.730f5b66.js.map": "/Dovban_React_18.05.23/static/js/main.730f5b66.js.map",
-    "787.1efde37a.chunk.js.map": "/Dovban_React_18.05.23/static/js/787.1efde37a.chunk.js.map"
+    "main.css": "/Dovban_React_18.05.23/home/static/css/main.8bc72b21.css",
+    "main.js": "/Dovban_React_18.05.23/home/static/js/main.3065fdc9.js",
+    "static/js/787.1efde37a.chunk.js": "/Dovban_React_18.05.23/home/static/js/787.1efde37a.chunk.js",
+    "index.html": "/Dovban_React_18.05.23/home/index.html",
+    "main.8bc72b21.css.map": "/Dovban_React_18.05.23/home/static/css/main.8bc72b21.css.map",
+    "main.3065fdc9.js.map": "/Dovban_React_18.05.23/home/static/js/main.3065fdc9.js.map",
+    "787.1efde37a.chunk.js.map": "/Dovban_React_18.05.23/home/static/js/787.1efde37a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a3a3f83.css",
-    "static/js/main.730f5b66.js"
+    "static/css/main.8bc72b21.css",
+    "static/js/main.3065fdc9.js"
   ]
 }
