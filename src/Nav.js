@@ -9,13 +9,7 @@ const Nav = () => {
         {navLinks.map((navLink, index) => {
           return (
             <li key={index}>
-              <NavLink
-                to={
-                  navLink === "Home"
-                    ? "/Dovban_React_18.05.23/home"
-                    : navLink.toLowerCase()
-                }
-              >
+              <NavLink to={navLink === "Home" ? "/" : navLink.toLowerCase()}>
                 {navLink}
               </NavLink>
             </li>
