@@ -144,3 +144,9 @@ li {
 .reset:hover {
   cursor: pointer;
 }
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchPopularRepos } from "./api";
+import { fetchPopularRepos } from "../../api/requests";
 import { useSearchParams } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@mui/material";
 import PopularList from "./PopularList";

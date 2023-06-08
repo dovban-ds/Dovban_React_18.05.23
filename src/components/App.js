@@ -1,9 +1,9 @@
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./Home";
-import Popular from "./Popular";
-import Battle from "./Battle";
+import Home from "../pages/Home";
+import Popular from "../pages/Popular";
+import Battle from "../pages/Battle";
 import Nav from "./Nav";
+import Result from "../pages/Battle/Results";
 
 const router = createBrowserRouter(
   [
@@ -22,6 +22,10 @@ const router = createBrowserRouter(
         {
           path: "/battle",
           element: <Battle />,
+        },
+        {
+          path: "battle/results",
+          element: <Result />,
         },
         {
           path: "*",
