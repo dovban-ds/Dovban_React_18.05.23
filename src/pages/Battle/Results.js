@@ -34,7 +34,6 @@ const Result = () => {
       .catch((error) => {
         console.log(error);
       });
-    //....
   }, []);
 
   useEffect(() => {

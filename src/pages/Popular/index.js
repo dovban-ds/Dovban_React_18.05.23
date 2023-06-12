@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchPopularRepos } from "../../api/requests";
 import { useSearchParams } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { updLanguage } from "../../store/popular/popular.actions";
 import PopularList from "./PopularList";
 
 const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
 
 const Popular = () => {
+  const dispatch = useDispatch();
+  const selectedLanguage = useSelector(
+    (state) => state.popularReducer.selectedLanguage
+  );
   const [loading, setLoading] = useState(false);
   const [repos, setRepos] = useState([]);
   const [error, setError] = useState(null);
@@ -20,6 +26,7 @@ const Popular = () => {
       .then((data) => {
         setRepos(data);
       })
+      .then(() => dispatch(updLanguage(reposQuery)))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, [reposQuery]);
