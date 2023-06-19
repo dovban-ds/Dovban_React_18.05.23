@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPopularRepos } from "../../api/requests";
 import { useSearchParams } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@mui/material";
-import { updLanguage } from "../../store/popular/popular.actions";
 import PopularList from "./PopularList";
+import { getRepos } from "../../store/popular/popular.thunk";
 
 const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
 
@@ -13,22 +12,16 @@ const Popular = () => {
   const selectedLanguage = useSelector(
     (state) => state.popularReducer.selectedLanguage
   );
-  const [loading, setLoading] = useState(false);
-  const [repos, setRepos] = useState([]);
-  const [error, setError] = useState(null);
+  const loading = useSelector((state) => state.popularReducer.loading);
+  const repos = useSelector((state) => state.popularReducer.repos);
+  const error = useSelector((state) => state.popularReducer.error);
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const reposQuery = searchParams.get("lang") || "All";
 
   useEffect(() => {
-    setLoading(true);
-    fetchPopularRepos(reposQuery)
-      .then((data) => {
-        setRepos(data);
-      })
-      .then(() => dispatch(updLanguage(reposQuery)))
-      .catch((error) => setError(error))
-      .finally(() => setLoading(false));
+    dispatch(getRepos(reposQuery));
   }, [reposQuery]);
 
   return (

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchPopularRepos = (language) => {
+export const getReposRequest = (language) => {
   return axios
     .get(
       window.encodeURI(

@@ -1,48 +1,28 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import PlayerPreview from "./PlayerPreview";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { getFullData, getTrueData } from "../../store/battle/battle.thunk";
+import { getDataLoadingAction } from "../../store/battle/battle.actions";
 
 const Result = () => {
   const location = useLocation();
-  const [starsFirst, setStarsFirst] = useState([]);
-  const [starsSecond, setStarsSecond] = useState([]);
-  const [trueData, setTrueData] = useState([]);
-  const [fullData, setFullData] = useState({});
-  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.battleReducer.loading);
+  const fullData = useSelector((state) => state.battleReducer.fullData);
+  const trueData = useSelector((state) => state.battleReducer.trueData);
+  console.log(loading);
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const urls = [
-      `https://api.github.com/users/${params.get("playerOneName")}/repos`,
-      `https://api.github.com/users/${params.get("playerTwoName")}/repos`,
-    ];
-    const requests = urls.map((url) => axios.get(url));
-    axios
-      .all(requests)
-      .then((data) => {
-        setStarsFirst(data[0].data);
-        setStarsSecond(data[1].data);
-
-        const firstArr = data[0].data.map((item) => item.stargazers_count);
-        const secondArr = data[1].data.map((item) => item.stargazers_count);
-        return Math.max(...firstArr) > Math.max(...secondArr)
-          ? setTrueData([params.get("playerOneName"), Math.max(...firstArr)])
-          : setTrueData([params.get("playerTwoName"), Math.max(...secondArr)]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    dispatch(getTrueData(location));
   }, []);
 
   useEffect(() => {
-    setLoading(true);
+    dispatch(getDataLoadingAction());
     if (typeof trueData[0] !== "undefined") {
-      axios
-        .get(`https://api.github.com/users/${trueData[0]}`)
-        .then((response) => setFullData(response.data))
-        .then(() => setLoading(false));
+      dispatch(getFullData(trueData[0]));
     } else {
       return;
     }
