@@ -4,7 +4,6 @@ import PlayerPreview from "./PlayerPreview";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getFullData, getTrueData } from "../../store/battle/battle.thunk";
-import { getDataLoadingAction } from "../../store/battle/battle.actions";
 
 const Result = () => {
   const location = useLocation();
@@ -13,14 +12,12 @@ const Result = () => {
   const loading = useSelector((state) => state.battleReducer.loading);
   const fullData = useSelector((state) => state.battleReducer.fullData);
   const trueData = useSelector((state) => state.battleReducer.trueData);
-  console.log(loading);
 
   useEffect(() => {
     dispatch(getTrueData(location));
   }, []);
 
   useEffect(() => {
-    dispatch(getDataLoadingAction());
     if (typeof trueData[0] !== "undefined") {
       dispatch(getFullData(trueData[0]));
     } else {
