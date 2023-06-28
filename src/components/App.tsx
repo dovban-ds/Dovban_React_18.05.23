@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "../pages/Home";
-import Popular from "../pages/Popular";
-import Battle from "../pages/Battle";
-import Nav from "./Nav";
-import Result from "../pages/Battle/Results";
+import Home from "../pages/Home/index.tsx";
+import Popular from "../pages/Popular/index.tsx";
+import Battle from "../pages/Battle/index.tsx";
+import Nav from "./Nav.tsx";
+import Result from "../pages/Battle/Results.tsx";
+import React from "react";
 
 const router = createBrowserRouter(
   [

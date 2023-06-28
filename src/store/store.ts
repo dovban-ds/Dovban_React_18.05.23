@@ -1,7 +1,7 @@
 import { createLogger } from "redux-logger";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import popularReducer from "./popular/popular.slice";
-import battleReducer from "./battle/battle.slice";
+import popularReducer from "./popular/popular.slice.ts";
+import battleReducer from "./battle/battle.slice.ts";
 
 export const store = configureStore({
   reducer: {
@@ -17,3 +17,6 @@ export const store = configureStore({
       })
     ),
 });
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;

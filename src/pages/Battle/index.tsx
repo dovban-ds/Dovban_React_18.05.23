@@ -1,15 +1,19 @@
-import PlayerInput from "./PlayerInput";
-import PlayerPreview from "./PlayerPreview";
+import PlayerInput from "./PlayerInput.tsx";
+import PlayerPreview from "./PlayerPreview.tsx";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updatePlayerData } from "../../store/battle/battle.slice";
+import { updatePlayerData } from "../../store/battle/battle.slice.ts";
+import { FC, ReactElement } from "react";
+import { AppDispatch, RootState } from "../../store/store.js";
+import { IBattleStore } from "../../store/battle/battle.types.js";
+import React from "react";
 
-const Battle = () => {
-  const dispatch = useDispatch();
+const Battle: FC = (): ReactElement => {
+  const dispatch = useDispatch<AppDispatch>();
   const { playerOneName, playerOneImage, playerTwoName, playerTwoImage } =
-    useSelector((state) => state.battleReducer.data);
+    useSelector((state: RootState) => state.battleReducer.data);
 
-  const handleSubmit = (id, userName) => {
+  const handleSubmit = (id: string, userName: string) => {
     const image = new Image();
     image.onload = () => {
       dispatch(
@@ -26,7 +30,7 @@ const Battle = () => {
     image.src = `https://github.com/${userName}.png?size=200`;
   };
 
-  const handleReset = (id) => {
+  const handleReset = (id: string) => {
     dispatch(
       updatePlayerData({
         id,

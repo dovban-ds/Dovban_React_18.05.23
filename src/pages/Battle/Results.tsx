@@ -1,23 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, FC, ReactElement } from "react";
 import { useLocation } from "react-router-dom";
-import PlayerPreview from "./PlayerPreview";
+import PlayerPreview from "./PlayerPreview.tsx";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { getFullData, getTrueData } from "../../store/battle/battle.thunk";
+import { getFullData, getTrueData } from "../../store/battle/battle.thunk.ts";
+import { AppDispatch, RootState } from "../../store/store";
+import React from "react";
 
-const Result = () => {
+const Result: FC = (): ReactElement => {
   const location = useLocation();
 
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => state.battleReducer.loading);
-  const fullData = useSelector((state) => state.battleReducer.fullData);
-  const trueData = useSelector((state) => state.battleReducer.trueData);
+  const dispatch = useDispatch<AppDispatch>();
+  const loading = useSelector(
+    (state: RootState) => state.battleReducer.loading
+  );
+  const fullData = useSelector(
+    (state: RootState) => state.battleReducer.fullData
+  );
+  const trueData = useSelector(
+    (state: RootState) => state.battleReducer.trueData
+  );
 
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(getTrueData(location));
   }, []);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (typeof trueData[0] !== "undefined") {
       dispatch(getFullData(trueData[0]));
     } else {

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getReposRequest } from "../../api/requests";
+import { getReposRequest } from "../../api/requests.ts";
 
 export const getRepos = createAsyncThunk(
   "popular/getRepos",
-  async (reposQuery, { rejectWithValue }, dispatch) => {
+  async (reposQuery: string, { rejectWithValue }): Promise<any> => {
     try {
       return await getReposRequest(reposQuery);
     } catch (error) {

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { FC, ReactElement } from "react";
+import { IRepos } from "../../store/popular/popular.types";
 
-const PopularList = ({ repos }) => {
+const PopularList: FC = ({ repos }: any): ReactElement => {
   return (
     <ul className="popular-list">
-      {repos.map((repo, index) => {
+      {repos.map((repo: IRepos, index: number): ReactElement => {
         return (
           <li key={repo.id} className="popular-item">
             <div className="popular-rank">#{index + 1}</div>
