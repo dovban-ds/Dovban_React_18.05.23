@@ -1,2 +1,2 @@
-Repository for react, redux, redux-tooolkit trainings.
+Repository for react, redux, redux-tooolkit, typescript trainings.
 
